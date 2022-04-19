@@ -21,6 +21,8 @@ private:
 	vector<word> vect_words;
 	vector<word> answer_defoult;
 	vector<word> answer_same;
+	int* d = new int[n];
+	int* prev = new int[n];
 	int n;
 public:
 	void Read(string fname) {
@@ -55,8 +57,6 @@ public:
 
 	void subsequence()
 	{
-		int *d = new int[n];
-		int *prev = new int[n];
 
 		for (int i = 0; i < n; i++) {
 			d[i] = 1;
@@ -94,4 +94,5 @@ public:
 			}
 		}
 	}
+
 };
