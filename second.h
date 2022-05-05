@@ -12,7 +12,7 @@ private:
 	int n;
 	vector <vector <int>> matrix;
 	vector<int> column;
-	vector <vector <int>> m;// (n, vector <int>(n, INT_MAX));
+	vector <vector <int>> m;
 	vector<int> M;
 	vector <vector <int>> s;
 	vector<int> S;

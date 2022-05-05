@@ -21,8 +21,6 @@ private:
 	vector<word> vect_words;
 	vector<word> answer_defoult;
 	vector<word> answer_same;
-	int* d = new int[n];
-	int* prev = new int[n];
 	int n;
 public:
 	void Read(string fname) {
@@ -48,21 +46,18 @@ public:
 		for (auto& s : answer_defoult) {
 			cout << s.Word << "_(" << s.Size_word << ")" << endl;
 		}
-		cout << endl;
-		cout << "______same_char_____" << endl;
-		for (auto& s : answer_same) {
-			cout << s.Word << "_(" << s.Size_word << ")" << endl;
-		}
 	}
 
 	void subsequence()
 	{
-
+		char s;
+		int* d = new int[n];
+		int* prev = new int[n];
 		for (int i = 0; i < n; i++) {
 			d[i] = 1;
 			prev[i] = -1;
 			for (int j = 0; j < i; j++) {
-				if (vect_words[j].Size_word < vect_words[i].Size_word && d[j] + 1 > d[i]) {
+				if (vect_words[j].Size_word < vect_words[i].Size_word && d[j] + 1 >= d[i] && vect_words[i].Word[0] == vect_words[j].Word[vect_words[j].Size_word - 1]) {
 					d[i] = d[j] + 1;
 					prev[i] = j;
 				}
@@ -85,14 +80,6 @@ public:
 		delete[] prev;
 	}
 
-	void same_char(char s)
-	{
-		for (int i = 0; i < n; i++) {
-			if (vect_words[i].Word[0] == s) {
-				answer_same.emplace_back(vect_words[i].Size_word, vect_words[i].Word);
-				same_char(vect_words[i].Word[vect_words[i].Size_word-1]);
-			}
-		}
-	}
+	
 
 };

@@ -7,13 +7,14 @@ using namespace std;
 
 
 int main() {
-	//NVP a;
-	multiply zxc;
-	//a.Read("input.txt"); 
-	//a.subsequence();
-	//a.same_char('C');
-	//a.Print();
+	NVP a;
+	a.Read("input.txt"); 
+	a.subsequence();
+	a.Print();
 
+	cout << endl << endl;
+
+	multiply zxc;
 	zxc.Read("matrix.txt");
 	zxc.Multiplication();
 	zxc.Print();
